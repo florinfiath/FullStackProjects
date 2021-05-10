@@ -45,6 +45,9 @@ app.use(setCors);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/robots', robotsRouter);
 
 //ERROR Handling 
 app.use((err,req, res, next) => {
@@ -57,9 +60,5 @@ app.use((err,req, res, next) => {
             }
         })
 });
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/robots', robotsRouter)
 
 module.exports = app;
